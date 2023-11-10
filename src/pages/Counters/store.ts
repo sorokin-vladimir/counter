@@ -14,7 +14,7 @@ interface BearState {
   decrease: (id: number) => void
 }
 
-export const useCounters = create<BearState>()(devtools(persist((set, get) => ({
+export const useCounters = create<BearState>()(devtools(persist((set) => ({
   counters: [],
   add: (name) => set((s) => ({ counters: [...s.counters, { id: Date.now(), count: 0, name: name ?? 'counter ' + (s.counters.length + 1) }] })),
   increase: (id) => set((s) => {
