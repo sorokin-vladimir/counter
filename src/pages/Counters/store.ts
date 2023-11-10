@@ -12,6 +12,7 @@ interface BearState {
   add: (name?: string) => void
   increase: (id: number) => void
   decrease: (id: number) => void
+  reset: () => void
 }
 
 export const useCounters = create<BearState>()(devtools(persist((set) => ({
@@ -31,4 +32,5 @@ export const useCounters = create<BearState>()(devtools(persist((set) => ({
     });
     return { counters: updatedCounters };
   }),
+  reset: () => set((s) => ({counters: s.counters.map(c => ({...c, count: 0}))}))
 }), { name: 'counter-storage' })))
