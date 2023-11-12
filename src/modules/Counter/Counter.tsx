@@ -1,6 +1,6 @@
 import { useCounters } from "../../pages/Counters/store";
 import { Button } from "../../ui/Button";
-import classes from './styles.module.css';
+import classes from './style.module.css';
 
 type CounterProps = {
   id: number;
@@ -10,10 +10,15 @@ export function Counter({ id }: CounterProps) {
   const counter = useCounters((s) => s.counters.find((c) => c.id === id));
   const increase = useCounters((s) => s.increase);
   const decrease = useCounters((s) => s.decrease);
+  const remove = useCounters(s => s.remove);
 
-  return <div class={classes.wrapper}>
+  return <>
+    {<Button onClick={() => remove(id)}>Del</Button>}
     {<Button onClick={() => decrease(id)}>-</Button>}
-    {counter?.name}: {counter?.count}
-    {<Button onClick={() => increase(id)}>+</Button>}
+    <div class={classes.data}>
+      <span class={classes.name}>{counter?.name}:</span>
+      <span>{counter?.count}</span>
     </div>
+    {<Button onClick={() => increase(id)}>+</Button>}
+    </>
 }

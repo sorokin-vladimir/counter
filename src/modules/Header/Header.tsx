@@ -8,6 +8,6 @@ export function Header() {
 
   return <header class={classes.header}>
     <Button onClick={reset}>Reset</Button>
-    <div class={classes.total}>total: {total}</div>
+    <div class={classes.total}>Total: {total}</div>
   </header>
 }

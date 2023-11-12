@@ -1,0 +1,13 @@
+.data {
+  display: inline-grid;
+  grid-template-columns: 1fr 2rem;
+  grid-column-gap: 1rem;
+}
+
+.name {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

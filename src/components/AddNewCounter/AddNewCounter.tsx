@@ -14,6 +14,6 @@ export function AddNewCounter() {
 
   return <div class={classes.wrapper}>
     <input value={value} onInput={(e) => setValue((e.target as EventTarget & { value: string }).value)} />
-    <Button onClick={handleClick}>Add new counter</Button>
+    <Button disabled={!value} onClick={handleClick}>Add counter</Button>
   </div>
 }
