@@ -13,12 +13,10 @@ export function Counter({ id }: CounterProps) {
   const remove = useCounters(s => s.remove);
 
   return <>
-    {<Button onClick={() => remove(id)}>Del</Button>}
-    {<Button onClick={() => decrease(id)}>-</Button>}
-    <div class={classes.data}>
+    <Button onClick={() => remove(id)}>Del</Button>
       <span class={classes.name}>{counter?.name}:</span>
-      <span>{counter?.count}</span>
-    </div>
-    {<Button onClick={() => increase(id)}>+</Button>}
+      <Button onClick={() => decrease(id)}>-</Button>
+      <span class={classes.count}>{counter?.count}</span>
+    <Button onClick={() => increase(id)}>+</Button>
     </>
 }
